@@ -18,8 +18,13 @@ public class ADRConsumer extends SimulationElement {
 	@Override
 	public void run() {
 		this.startConsumingMq();
+		//TODO init procedure ofthe consumer
 		int i = 0;
+		//TODO Registration message (it could be that in the content of the registration message there is already the first update)
 		System.out.println("MyQueue: " + inputQueueName);
+		//TODO think how to monitor the frequency (it could be done centrally by he main consumer every second and there could be a method to call)
+		
+		//TODO decide also how often the updates are sent, and with which policy (frequency & every status change?)
 		while (i++ < 2) {
 			try {
 				this.sendMessage(SimulationMessageFactory.getRegisterMessage(

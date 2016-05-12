@@ -38,7 +38,6 @@ public class MainConsumer {
 		try {
 			Thread.sleep(30000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		endOfSimulation();
@@ -61,6 +60,8 @@ public class MainConsumer {
 		for (Thread thread : threads) {
 			thread.start();
 		}
+		//Start reading frequency
+		FrequencyReader.startFrequencyReader();
 	}
 	
 	/**
@@ -71,5 +72,7 @@ public class MainConsumer {
 			simulationElement.setKeepGoing(false);
 			simulationElement.closeConnection();
 		}
+		//STop Frequency Reader
+		FrequencyReader.setKeepReadingToFalse();
 	}
 }
